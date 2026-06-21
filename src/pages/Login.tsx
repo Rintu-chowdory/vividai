@@ -49,7 +49,7 @@ export default function Login() {
           <div className="space-y-3">
             <input type="email" placeholder="Email address" className="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white placeholder-white/30 outline-none focus:border-violet-500/50 transition-all" />
             <input type="password" placeholder="Password" className="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white placeholder-white/30 outline-none focus:border-violet-500/50 transition-all" />
-            <button className="w-full rounded-xl bg-violet-600 py-3 text-sm font-semibold text-white transition-all hover:bg-violet-500">Sign in</button>
+            <button onClick={handleGoogle} className="w-full rounded-xl bg-violet-600 py-3 text-sm font-semibold text-white transition-all hover:bg-violet-500">Sign in</button>
           </div>
         </div>
         <p className="mt-6 text-center text-xs text-white/25">
