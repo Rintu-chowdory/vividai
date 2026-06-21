@@ -4,29 +4,31 @@
 
 @layer base {
   body {
-    @apply bg-[#0a0a0f] text-white antialiased;
-    font-family: 'Inter', system-ui, sans-serif;
+    @apply text-white antialiased;
+    font-family: "Inter", system-ui, sans-serif;
+    background: radial-gradient(ellipse at top left, #1a0533 0%, #0d0020 30%, #050010 60%, #000008 100%);
+    min-height: 100vh;
   }
 }
 
 @layer utilities {
   .glass {
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(255, 255, 255, 0.04);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.07);
   }
   .glass-hover {
     @apply transition-all duration-200;
   }
   .glass-hover:hover {
-    background: rgba(255, 255, 255, 0.08);
-    border-color: rgba(139, 92, 246, 0.3);
+    background: rgba(139, 92, 246, 0.08);
+    border-color: rgba(139, 92, 246, 0.35);
   }
   .glow-violet {
-    box-shadow: 0 0 40px rgba(139, 92, 246, 0.15);
+    box-shadow: 0 0 60px rgba(139, 92, 246, 0.2), 0 0 120px rgba(139, 92, 246, 0.05);
   }
   .gradient-text {
-    background: linear-gradient(135deg, #a78bfa, #60a5fa);
+    background: linear-gradient(135deg, #c084fc, #818cf8, #60a5fa);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -35,6 +37,6 @@
 
 /* Custom scrollbar */
 ::-webkit-scrollbar { width: 6px; }
-::-webkit-scrollbar-track { background: #0a0a0f; }
-::-webkit-scrollbar-thumb { background: #3f3f5a; border-radius: 3px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #4c1d95; border-radius: 3px; }
 ::-webkit-scrollbar-thumb:hover { background: #7c3aed; }
