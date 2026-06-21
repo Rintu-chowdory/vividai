@@ -1,11 +1,12 @@
 import { NavLink, Link } from "react-router-dom"
-import { Sparkles, LogIn, Clapperboard } from "lucide-react"
+import { LogIn, Clapperboard } from "lucide-react"
 
 const navItems = [
   { to: "/", label: "Home" },
   { to: "/create", label: "Create" },
   { to: "/gallery", label: "Gallery" },
   { to: "/templates", label: "Templates" },
+  { to: "/pricing", label: "Pricing" },
 ]
 
 export default function Navbar() {
