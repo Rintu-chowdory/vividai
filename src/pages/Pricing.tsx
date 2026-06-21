@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { Check, Zap, Crown, Sparkles } from 'lucide-react'
+import { Check, Zap, Crown, Sparkles, Star, Quote } from 'lucide-react'
 
 const plans = [
   {
@@ -68,6 +68,63 @@ const plans = [
       'Priority support',
     ],
     missing: [],
+  },
+]
+
+const testimonials = [
+  {
+    quote: "I went from spending 3 hours on a product video to generating one in under 5 minutes. The cinematic style is genuinely stunning — clients think I hired a production crew.",
+    author: "Sophie M.",
+    role: "Freelance Creative Director",
+    plan: "Pro",
+    stars: 5,
+    avatar: "SM",
+    color: "from-violet-500 to-fuchsia-500",
+  },
+  {
+    quote: "Our agency cranks out content for 12 clients a month. VividAI Studio paid for itself in the first week — we cut our video production cost by 80%.",
+    author: "James K.",
+    role: "Founder, Pixelwave Agency",
+    plan: "Studio",
+    stars: 5,
+    avatar: "JK",
+    color: "from-blue-500 to-cyan-500",
+  },
+  {
+    quote: "Started on Free just to try it. Upgraded to Pro the same day. The 3D render style is unlike anything I've seen from other AI tools.",
+    author: "Lena R.",
+    role: "Content Creator, 280k followers",
+    plan: "Pro",
+    stars: 5,
+    avatar: "LR",
+    color: "from-pink-500 to-rose-500",
+  },
+  {
+    quote: "We use VividAI for all our social media campaigns. The team workspace feature keeps everyone aligned and the turnaround is insane.",
+    author: "Marcus T.",
+    role: "Head of Marketing, Novatech",
+    plan: "Studio",
+    stars: 5,
+    avatar: "MT",
+    color: "from-amber-500 to-orange-500",
+  },
+  {
+    quote: "The free plan alone is better than tools I've paid €50/month for. Upgraded to Pro after day one.",
+    author: "Aria D.",
+    role: "Indie Game Developer",
+    plan: "Pro",
+    stars: 5,
+    avatar: "AD",
+    color: "from-emerald-500 to-teal-500",
+  },
+  {
+    quote: "Commercial license included in Pro was the deal-clincher. I can actually sell the videos I create — that's rare in this space.",
+    author: "Tom B.",
+    role: "Video Marketer",
+    plan: "Pro",
+    stars: 5,
+    avatar: "TB",
+    color: "from-violet-400 to-indigo-500",
   },
 ]
 
@@ -184,6 +241,55 @@ export default function Pricing() {
               </div>
             )
           })}
+        </div>
+
+        {/* Testimonials */}
+        <div className="mt-24">
+          <div className="mb-12 text-center">
+            <div className="mb-4 flex items-center justify-center gap-1">
+              {[...Array(5)].map((_, i) => (
+                <Star key={i} size={18} className="fill-amber-400 text-amber-400" />
+              ))}
+            </div>
+            <h2 className="text-3xl font-bold">Loved by creators worldwide</h2>
+            <p className="mt-3 text-sm text-white/40">Don't take our word for it.</p>
+          </div>
+
+          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {testimonials.map((t) => (
+              <div
+                key={t.author}
+                className="flex flex-col rounded-2xl border border-white/8 bg-white/5 p-6 transition-all hover:border-white/12 hover:bg-white/8"
+              >
+                {/* Quote icon */}
+                <Quote size={20} className="mb-4 text-violet-400/50" />
+
+                {/* Stars */}
+                <div className="mb-3 flex gap-0.5">
+                  {[...Array(t.stars)].map((_, i) => (
+                    <Star key={i} size={12} className="fill-amber-400 text-amber-400" />
+                  ))}
+                </div>
+
+                {/* Quote text */}
+                <p className="flex-1 text-sm leading-relaxed text-white/70">"{t.quote}"</p>
+
+                {/* Author */}
+                <div className="mt-5 flex items-center gap-3">
+                  <div className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-gradient-to-br ${t.color} text-xs font-bold text-white`}>
+                    {t.avatar}
+                  </div>
+                  <div>
+                    <p className="text-sm font-semibold text-white">{t.author}</p>
+                    <p className="text-xs text-white/40">{t.role}</p>
+                  </div>
+                  <span className="ml-auto rounded-full border border-violet-500/20 bg-violet-500/10 px-2.5 py-0.5 text-xs text-violet-400">
+                    {t.plan}
+                  </span>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
 
         {/* FAQ */}
