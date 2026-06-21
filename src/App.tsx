@@ -7,6 +7,7 @@ import Templates from './pages/Templates'
 import Login from './pages/Login'
 import Datenschutz from './pages/Datenschutz'
 import Impressum from './pages/Impressum'
+import Pricing from './pages/Pricing'
 
 function Footer() {
   return (
