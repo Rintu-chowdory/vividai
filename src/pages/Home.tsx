@@ -187,9 +187,9 @@ export default function Home() {
               >
                 {samplePrompts[activePrompt]}
               </span>
-              <span className="ml-auto shrink-0 rounded-lg bg-violet-600/80 px-3 py-1.5 text-xs font-semibold text-white cursor-pointer hover:bg-violet-500 transition-colors">
+              <Link to="/create" className="ml-auto shrink-0 rounded-lg bg-violet-600/80 px-3 py-1.5 text-xs font-semibold text-white hover:bg-violet-500 transition-colors">
                 Generate →
-              </span>
+              </Link>
             </div>
             <div className="flex justify-center gap-1.5 py-2">
               {samplePrompts.map((_, i) => (
