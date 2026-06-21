@@ -2,11 +2,29 @@
 @tailwind components;
 @tailwind utilities;
 
+@keyframes gradientShift {
+  0%   { background-position: 0% 0%; }
+  25%  { background-position: 100% 0%; }
+  50%  { background-position: 100% 100%; }
+  75%  { background-position: 0% 100%; }
+  100% { background-position: 0% 0%; }
+}
+
 @layer base {
   body {
     @apply text-white antialiased;
     font-family: "Inter", system-ui, sans-serif;
-    background: radial-gradient(ellipse at top left, #1a0533 0%, #0d0020 30%, #050010 60%, #000008 100%);
+    background: linear-gradient(
+      135deg,
+      #0d0020 0%,
+      #1a0040 20%,
+      #050015 40%,
+      #0a0030 60%,
+      #1a0535 80%,
+      #000010 100%
+    );
+    background-size: 400% 400%;
+    animation: gradientShift 18s ease infinite;
     min-height: 100vh;
   }
 }
