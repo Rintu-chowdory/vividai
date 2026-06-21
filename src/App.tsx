@@ -56,6 +56,10 @@ export default function App() {
           path="/impressum"
           element={<><Navbar /><Impressum /><Footer /></>}
         />
+        <Route
+          path="/pricing"
+          element={<><Navbar /><Pricing /><Footer /></>}
+        />
       </Routes>
     </BrowserRouter>
   )
