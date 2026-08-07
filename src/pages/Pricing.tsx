@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { useDocumentTitle } from '../hooks/useDocumentTitle'
 import { Check, Zap, Crown, Sparkles, Star, Quote } from 'lucide-react'
 
 const plans = [
@@ -148,6 +149,7 @@ const faqs = [
 ]
 
 export default function Pricing() {
+  useDocumentTitle('Pricing — VividAI')
   return (
     <main className="min-h-screen px-6 py-20">
       <div className="mx-auto max-w-6xl">

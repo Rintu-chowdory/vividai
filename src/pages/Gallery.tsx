@@ -1,4 +1,6 @@
 import { useState } from "react"
+import SmartImage from '../components/SmartImage'
+import { useDocumentTitle } from '../hooks/useDocumentTitle'
 import { Play, Download, Heart, Search, Eye, Sparkles } from "lucide-react"
 
 const filters = ["All", "Cinematic", "Anime", "Realistic", "3D Render"]
@@ -51,6 +53,7 @@ function formatNum(n: number) {
 }
 
 export default function Gallery() {
+  useDocumentTitle('Gallery — VividAI')
   const [active, setActive] = useState("All")
   const [search, setSearch] = useState("")
   const [liked, setLiked] = useState<Set<number>>(new Set())
@@ -126,7 +129,7 @@ export default function Gallery() {
               >
                 {/* Thumbnail */}
                 <div className={`relative overflow-hidden bg-black ${video.tall ? "h-64" : "h-40"}`}>
-                  <img
+                  <SmartImage
                     src={video.img}
                     alt={video.title}
                     className="h-full w-full object-cover opacity-80 transition-transform duration-500 group-hover:scale-110 group-hover:opacity-100"

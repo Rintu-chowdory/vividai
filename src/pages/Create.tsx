@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useDocumentTitle } from '../hooks/useDocumentTitle'
 import { Sparkles, Film, Wand2, ChevronDown } from 'lucide-react'
 
 const styles = ['Cinematic', 'Anime', 'Realistic', '3D Render', 'Sketch', 'Neon']
@@ -6,6 +7,7 @@ const durations = ['15s', '30s', '60s', '2min', '5min']
 const ratios = ['16:9', '9:16', '1:1', '4:3']
 
 export default function Create() {
+  useDocumentTitle('Create — VividAI')
   const [prompt, setPrompt] = useState('')
   const [style, setStyle] = useState('Cinematic')
   const [duration, setDuration] = useState('30s')

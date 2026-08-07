@@ -1,4 +1,6 @@
 import { Link } from "react-router-dom"
+import SmartImage from '../components/SmartImage'
+import { useDocumentTitle } from '../hooks/useDocumentTitle'
 import { Sparkles, Film, Clock, TrendingUp, Play, Plus, Zap, Globe, Shield, Star } from "lucide-react"
 import { useEffect, useState } from "react"
 
@@ -94,6 +96,7 @@ function useScrollReveal() {
 }
 
 export default function Home() {
+  useDocumentTitle('VividAI — AI Video Generation')
   const [wordIdx, setWordIdx] = useState(0)
   const [displayed, setDisplayed] = useState("")
   const [deleting, setDeleting] = useState(false)
@@ -264,7 +267,7 @@ export default function Home() {
                     style={{ transitionDelay: `${i * 80}ms` }}
                   >
                     <div className="relative h-40 overflow-hidden bg-black">
-                      <img
+                      <SmartImage
                         src={video.img}
                         alt={video.title}
                         className="h-full w-full object-cover opacity-75 transition-transform duration-500 group-hover:scale-110 group-hover:opacity-100"

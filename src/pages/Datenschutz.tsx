@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom"
+import { useDocumentTitle } from '../hooks/useDocumentTitle'
 import { ArrowLeft, Shield } from "lucide-react"
 
 const sections = [
@@ -207,6 +208,7 @@ const sections = [
 ]
 
 export default function Datenschutz() {
+  useDocumentTitle('Datenschutz — VividAI')
   return (
     <>
       <div className="orb orb-1" style={{ opacity: 0.5 }} />

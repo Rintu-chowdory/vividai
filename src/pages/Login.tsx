@@ -1,8 +1,10 @@
 import { useState } from "react"
-import { useNavigate } from "react-router-dom"
+import { useDocumentTitle } from '../hooks/useDocumentTitle'
+import { useNavigate, Link } from "react-router-dom"
 import { Sparkles } from "lucide-react"
 
 export default function Login() {
+  useDocumentTitle('Sign in — VividAI')
   const [loading, setLoading] = useState(false)
   const navigate = useNavigate()
 
@@ -54,7 +56,7 @@ export default function Login() {
         </div>
         <p className="mt-6 text-center text-xs text-white/25">
           By signing in you agree to our Datenschutzerklaerung and Terms of Service.
-          See <a href="/datenschutz" className="text-violet-400 hover:underline">Datenschutz</a>
+          See <Link to="/datenschutz" className="text-violet-400 hover:underline">Datenschutz</Link>
         </p>
       </div>
     </div>

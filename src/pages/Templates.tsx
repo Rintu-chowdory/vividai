@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useDocumentTitle } from '../hooks/useDocumentTitle'
 import { Play, Zap } from 'lucide-react'
 import { useNavigate } from 'react-router-dom'
 
@@ -62,6 +63,7 @@ const templates = [
 ]
 
 export default function Templates() {
+  useDocumentTitle('Templates — VividAI')
   const [active, setActive] = useState('All')
   const navigate = useNavigate()
 
