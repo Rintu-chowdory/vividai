@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import SmartImage from '../components/SmartImage'
 import { useDocumentTitle } from '../hooks/useDocumentTitle'
 import { Sparkles, Film, Clock, TrendingUp, Play, Plus, Zap, Globe, Shield, Star } from "lucide-react"
@@ -102,6 +102,8 @@ export default function Home() {
   const [deleting, setDeleting] = useState(false)
   const [loaded, setLoaded] = useState(false)
   const [activePrompt, setActivePrompt] = useState(0)
+  const [promptInput, setPromptInput] = useState("")
+  const navigate = useNavigate()
 
   useScrollReveal()
 
@@ -179,20 +181,29 @@ export default function Home() {
             </Link>
           </div>
 
-          {/* Prompt showcase */}
+          {/* Prompt input */}
           <div className="mx-auto max-w-2xl glass rounded-2xl p-1 border border-white/10">
             <div className="flex items-center gap-3 rounded-xl bg-white/5 px-5 py-4">
               <Sparkles size={16} className="text-violet-400 shrink-0" />
-              <span
-                key={activePrompt}
-                className="text-sm text-white/60 text-left truncate transition-all duration-700"
-                style={{ animation: "fadeUp 0.5s ease forwards" }}
+              <input
+                type="text"
+                value={promptInput}
+                onChange={(e) => setPromptInput(e.target.value)}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter" && promptInput.trim()) {
+                    navigate(`/create?prompt=${encodeURIComponent(promptInput)}`)
+                  }
+                }}
+                placeholder={samplePrompts[activePrompt]}
+                className="flex-1 bg-transparent text-sm text-white placeholder-white/30 outline-none"
+              />
+              <button
+                onClick={() => promptInput.trim() && navigate(`/create?prompt=${encodeURIComponent(promptInput)}`)}
+                disabled={!promptInput.trim()}
+                className="ml-auto shrink-0 rounded-lg bg-violet-600/80 px-3 py-1.5 text-xs font-semibold text-white hover:bg-violet-500 transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
               >
-                {samplePrompts[activePrompt]}
-              </span>
-              <Link to="/create" className="ml-auto shrink-0 rounded-lg bg-violet-600/80 px-3 py-1.5 text-xs font-semibold text-white hover:bg-violet-500 transition-colors">
                 Generate →
-              </Link>
+              </button>
             </div>
             <div className="flex justify-center gap-1.5 py-2">
               {samplePrompts.map((_, i) => (

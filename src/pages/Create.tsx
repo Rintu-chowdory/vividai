@@ -1,4 +1,5 @@
 import { useState, useCallback } from 'react'
+import { useSearchParams } from 'react-router-dom'
 import { useDocumentTitle } from '../hooks/useDocumentTitle'
 import { Sparkles, Film, Wand2, Check, Download, RotateCcw } from 'lucide-react'
 
@@ -8,7 +9,8 @@ const ratios = ['16:9', '9:16', '1:1', '4:3']
 
 export default function Create() {
   useDocumentTitle('Create — VividAI')
-  const [prompt, setPrompt] = useState('')
+  const [searchParams] = useSearchParams()
+  const [prompt, setPrompt] = useState(searchParams.get('prompt') || '')
   const [style, setStyle] = useState('Cinematic')
   const [duration, setDuration] = useState('30s')
   const [ratio, setRatio] = useState('16:9')
