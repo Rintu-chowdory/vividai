@@ -10,6 +10,7 @@ import Login from './pages/Login'
 import Datenschutz from './pages/Datenschutz'
 import Impressum from './pages/Impressum'
 import Pricing from './pages/Pricing'
+import Film from './pages/Film'
 import NotFound from './pages/NotFound'
 
 function Footer() {
@@ -45,6 +46,7 @@ export default function App() {
           <Route path="/create" element={<Layout><Create /></Layout>} />
           <Route path="/gallery" element={<Layout><Gallery /></Layout>} />
           <Route path="/templates" element={<Layout><Templates /></Layout>} />
+          <Route path="/film" element={<Layout><Film /></Layout>} />
           <Route path="/datenschutz" element={<Layout><Datenschutz /></Layout>} />
           <Route path="/impressum" element={<Layout><Impressum /></Layout>} />
           <Route path="/pricing" element={<Layout><Pricing /></Layout>} />
